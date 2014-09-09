@@ -25,7 +25,7 @@ public class TestDriver {
     @BeforeClass
     public static void setUp() throws Exception {
 
-        wDriver = sDriver.getDriver("Firefox");
+        wDriver = sDriver.getDriver(DriverSetup.BrowserType.FIREFOX);
         String baseUrl = "http://getbootstrap.com/";
         wDriver.get(baseUrl);
         wDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

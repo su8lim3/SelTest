@@ -24,67 +24,42 @@ public class DriverSetup {
 
     private WebDriver driver;
 
-    public WebDriver getDriver(String browserType) {
-
-        if (browserType == "Chrome") {
-            String chromeDriverPath = "/path/to/chromedriver";
-            DesiredCapabilities chromeCapability = DesiredCapabilities.chrome();
-            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-            WebDriver driver = new ChromeDriver(chromeCapability);
-            driver = new ChromeDriver();
-            return driver;
-        }
-        else if (browserType == "Firefox"){
-            driver = new FirefoxDriver();
-            return  driver;
-        }
-
-        else if (browserType == "IE") {
-            String ieDriverPath = "/path/to/ieDriver";
-            DesiredCapabilities ieCapability = DesiredCapabilities.internetExplorer();
-            System.setProperty("webdriver.ie.driver", ieDriverPath);
-            driver = new InternetExplorerDriver(ieCapability);
-            driver = new ChromeDriver();
-            return driver;
-        }
-
-        //else if (browserType == "Android"){
-            // Set Android Config Here
-            //return driver;
-        //}
-
-        else throw new RuntimeException("Browser Type is not Supported");
-
-//        switch (browserType) {
-//            case "Chrome":
-//                String chromeDriverPath = "/path/to/chromedriver";
-//                DesiredCapabilities chromeCapability = DesiredCapabilities.chrome();
-//                System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-//                WebDriver driver = new ChromeDriver(chromeCapability);
-//                driver = new ChromeDriver();
-//                return driver;
-//                break;
-//
-//            case "Firefox":
-//                driver = new FirefoxDriver();
-//                return  driver;
-//
-//            case "Android":
-//
-//                // Set Android Config Here
-//
-//            case "IE":
-//
-//                String ieDriverPath = "/path/to/ieDriver";
-//                DesiredCapabilities ieCapability = DesiredCapabilities.internetExplorer();
-//                System.setProperty("webdriver.ie.driver", ieDriverPath);
-//                driver = new InternetExplorerDriver(ieCapability);
-//                driver = new ChromeDriver();
-//                return driver;
-//
-//            default:
-//                throw new RuntimeException("Browser Type is not Supported");
-
+    public enum BrowserType{
+        FIREFOX, IE, CHROME, ANDROID, SAFARI
     }
 
+    public WebDriver getDriver(BrowserType browserType) {
+        switch (browserType) {
+            case FIREFOX:
+                driver = new FirefoxDriver();
+                return  driver;
+            
+            case IE:
+                String ieDriverPath = "/path/to/ieDriver";
+                DesiredCapabilities ieCapability = DesiredCapabilities.internetExplorer();
+                System.setProperty("webdriver.ie.driver", ieDriverPath);
+                driver = new InternetExplorerDriver(ieCapability);
+                driver = new ChromeDriver();
+                return driver;
+
+            case CHROME:
+                String chromeDriverPath = "/path/to/chromedriver";
+                DesiredCapabilities chromeCapability = DesiredCapabilities.chrome();
+                System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+                WebDriver driver = new ChromeDriver(chromeCapability);
+                driver = new ChromeDriver();
+                return driver;
+
+            //case SAFARI:
+                // Need to implement
+                //return driver;
+
+            //case ANDROID:
+                // Need to implement
+                //return driver;
+
+            default:
+                throw new RuntimeException("Browser type unsupported");
+        }
+    }
 }
