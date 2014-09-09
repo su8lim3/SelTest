@@ -35,19 +35,17 @@ public class DriverSetup {
                 return  driver;
             
             case IE:
-                String ieDriverPath = "/path/to/ieDriver";
+                String ieDriverPath = "c://TFS//icApps//9.0//Automation//Library//Library//Selenium//IEDriverServer.exe";
                 DesiredCapabilities ieCapability = DesiredCapabilities.internetExplorer();
                 System.setProperty("webdriver.ie.driver", ieDriverPath);
                 driver = new InternetExplorerDriver(ieCapability);
-                driver = new ChromeDriver();
                 return driver;
 
             case CHROME:
-                String chromeDriverPath = "/path/to/chromedriver";
+                String chromeDriverPath = "c://TFS//icApps//9.0//Automation//Library//Library//Selenium//chromedriver.exe";
                 DesiredCapabilities chromeCapability = DesiredCapabilities.chrome();
                 System.setProperty("webdriver.chrome.driver", chromeDriverPath);
-                WebDriver driver = new ChromeDriver(chromeCapability);
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(chromeCapability);
                 return driver;
 
             //case SAFARI:
