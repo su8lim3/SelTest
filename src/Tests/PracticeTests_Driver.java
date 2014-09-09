@@ -54,11 +54,13 @@ public class PracticeTests_Driver {
 	}
 
 	@Test
-	public void _03LogOut() throws Exception {
+	public void _03GetTableData() throws Exception {
 	    //driver.findElement(By.className("gb_A gb_8 gb_f")).click();
 	    //driver.findElement(By.id("gb_71")).click();
 		WebElement webTable = driver.findElement(By.id("ProductsTableControlGrid"));
-		List<WebElement> TotalRowCount = webTable.findElements(By.xpath("//table[@id='ProductsTableControlGrid']/tbody/tr"));
+		//List<WebElement> TotalRowCount = webTable.findElements(By.xpath("//table[@id='ProductsTableControlGrid']/tbody/tr"));
+
+        List<WebElement> TotalRowCount = webTable.findElements(By.cssSelector("table#ProductsTableControlGrid /tr"));
 		
 		System.out.println("No. of Rows in the WebTable: "+TotalRowCount.size());
 		
