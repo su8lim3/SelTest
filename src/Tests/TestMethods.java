@@ -9,11 +9,24 @@ import org.openqa.selenium.WebDriver;
  */
 public class TestMethods {
 
-    public void ClickAround(WebDriver wDriver){
+    public void aClickAround(WebDriver wDriver){
         wDriver.findElement(By.linkText("JavaScript")).click();
         wDriver.findElement(By.cssSelector("p > a")).click();
         Assert.assertEquals("bootstrap/bower.json at v3.2.0 · twbs/bootstrap · GitHub", wDriver.getTitle());
 
     }
 
+    public void bClickAround(WebDriver wDriver){
+        wDriver.findElement(By.linkText("JavaScript")).click();
+        wDriver.findElement(By.cssSelector("p > a")).click();
+        Assert.assertEquals("bootstrap/bower.json at v3.2.0 · twbs/bootstrap · GitHub", wDriver.getTitle());
+
+    }
+
+    public void cClickAround(WebDriver wDriver){
+        wDriver.findElement(By.linkText("JavaScript")).click();
+        wDriver.findElement(By.cssSelector("p > a")).click();
+        Assert.assertEquals("bootstrap/bower.json at v3.2.0 · twbs/bootstrap · GitHub", wDriver.getTitle());
+
+    }
 }
